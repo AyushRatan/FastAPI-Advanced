@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+pyJWT
+sqlmodel
+mysql-connector
+pymysql
+asyncpg
+pydantic-settings
