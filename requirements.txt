@@ -10,3 +10,4 @@ pydantic-settings
 passlib
 alembic
 bcrypt
+aioredis
