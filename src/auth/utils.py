@@ -7,7 +7,7 @@ import logging
 
 password_context = CryptContext(schemes=["bcrypt"])
 
-ACCESS_TOKEN_EXPIRY = 3600
+ACCESS_TOKEN_EXPIRY = 60
 
 
 def generate_passwd_hash(password:str):
@@ -37,7 +37,7 @@ def create_token(user_data:dict, expiry:timedelta = None,refresh:bool=False):
 
 def decode_token(token:str) -> dict:
     try:
-        token_data = jwt.decode(token,key=Config.JWT_SECRET_KEY,algorithms=[Config.JWT_ALGORITHM])
+        token_data = jwt.decode(token,key=Config.JWT_SECRET,algorithms=[Config.JWT_ALGORITHM])
         return token_data
     
     except jwt.PyJWTError as e:

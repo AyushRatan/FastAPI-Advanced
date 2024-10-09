@@ -40,7 +40,8 @@ async def login(login_data:UserLoginModel, session:AsyncSession=Depends(get_sess
             access_token = create_token(
                 user_data={
                     "email":email,
-                    "uid":str(user.uid)
+                    "uid":str(user.uid),
+                    "role":user.role
                 }
             )
 
