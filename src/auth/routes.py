@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from .schemas import UserCreateModel, UserModel, UserLoginModel
+from .schemas import UserCreateModel, UserModel, UserLoginModel, UserBooksModel
 from .service import UserService
 from sqlmodel.ext.asyncio.session import AsyncSession
 from src.db.main import get_session
@@ -74,8 +74,8 @@ async def login(login_data:UserLoginModel, session:AsyncSession=Depends(get_sess
         raise HTTPException(status_code=404, detail="User not found")
 
 
-@auth_router.get("/me")
-async def get_current_user(user = Depends(get_current_user)):
+@auth_router.get("/me", response_model=UserBooksModel)
+async def get_active_user(user = Depends(get_current_user)):
     return user
     
 @auth_router.get("/refresh_token")

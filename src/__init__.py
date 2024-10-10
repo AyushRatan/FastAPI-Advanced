@@ -18,6 +18,7 @@ app = FastAPI(
     title="Book API",
     description="REST API for Books",
     version=version,
+    lifespan=life_span
 )
 
 

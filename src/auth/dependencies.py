@@ -31,11 +31,11 @@ class TokenBearer(HTTPBearer):
                 "resolution":"Please get a new token"
             })
         
-        if await token_in_blocklist(token_data["jti"]):
-            raise HTTPException(status_code = status.HTTP_403_FORBIDDEN, detail={
-                "error":"Invalid or expired token",
-                "resolution":"Please get a new token"
-            })
+        # if await token_in_blocklist(token_data["jti"]):
+        #     raise HTTPException(status_code = status.HTTP_403_FORBIDDEN, detail={
+        #         "error":"Invalid or expired token",
+        #         "resolution":"Please get a new token"
+        #     })
         
         self.verify_token_data(token_data)
         
