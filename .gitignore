@@ -1,3 +1,5 @@
 apienv
 .env
 __pycache__
+migrations
+alembic.ini

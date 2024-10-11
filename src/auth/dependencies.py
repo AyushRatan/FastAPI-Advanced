@@ -9,6 +9,7 @@ from sqlmodel.ext.asyncio.session import AsyncSession
 from .service import UserService
 from typing import List, Any
 from src.db.models import User
+from src.errors import InvalidToken
 
 user_service = UserService()
 
